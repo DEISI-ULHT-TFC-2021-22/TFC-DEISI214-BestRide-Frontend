@@ -1,0 +1,107 @@
+<ion-header>
+  <ion-toolbar>
+    <img src="assets/BestRideLogo.png" />
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="body">
+
+    <svg height="100%" width="100%" class="back">
+      <circle cx="0" cy="0" r="230" fill="#FF3F00" />
+      <circle cx="0" cy="calc(100%)" r="230" fill="#bc3592" />
+      <circle cx="calc(100%)" cy="calc(100%)" r="230" fill="#58a600" />
+    </svg>
+
+    <div class="content">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-card>
+
+              <ion-list-header>
+                <ion-label>{{'Your Reservations' | customTranslate | async}}</ion-label>
+              </ion-list-header>
+
+              <div *ngIf="tour_array.length == 0 && !loadingContent">
+                <ion-card>
+                  <ion-card-header>
+                    <h1>No Reserves !!</h1>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <ion-icon color="warning" name="alert-circle" slot="start">
+                    </ion-icon>
+                    <ion-text>
+                      You have no Paid Trips! Explore ...
+                    </ion-text>
+                  </ion-card-content>
+                </ion-card>
+              </div>
+
+              <div *ngIf="tour_array.length > 0 && !loadingContent">
+                <ion-list *ngFor="let tour of tour_array">
+                  <ion-row>
+                    <ion-col class="ion-align-items-start">
+                      <ion-item>
+                        <!-- List of the paid trips -->
+                        <ion-card>
+                          <ion-item>
+                            <h1>{{tour.road_map_name}}</h1>
+                          </ion-item>
+
+                          <ion-card-content>
+                            <ion-button color="warning" expand="full" (click)="comments(tour.road_id)">
+                              {{'Comment Tour' | customTranslate | async}}
+                            </ion-button>
+                            <ion-item>
+                              <ion-icon name="time" slot="start"></ion-icon>
+                              <ion-label> {{tour.duration}}</ion-label>
+                            </ion-item>
+                            <ion-item>
+                              <ion-icon name="wallet" slot="start"></ion-icon>
+                              <ion-label> Paid : {{tour.price}} EUR</ion-label>
+                            </ion-item>
+                          </ion-card-content>
+                        </ion-card>
+                        <ion-label>{{tour.road_map_name}}</ion-label>
+                        <ion-label>{{tour.duration}}</ion-label>
+                        <ion-label>{{tour.price}}</ion-label>
+                      </ion-item>
+                    </ion-col>
+                  </ion-row>
+                </ion-list>
+              </div>
+              <!--
+              <ion-list *ngFor="let tour of tour_array">
+                <ion-item-sliding>
+                  <ion-item>
+                    <ion-row>
+                      <ion-card-title>
+                        <ion-text>
+                          <h1>{{tour.road_map_name}}</h1>
+                        </ion-text>
+                      </ion-card-title>
+                      <ion-card-content>
+                        <ion-text color="primary">
+                          <label>{{tour.duration}} | {{ tour.price }} €</label>
+                        </ion-text>
+                      </ion-card-content>
+                    </ion-row>
+                  </ion-item>
+
+                  <ion-item-options side="end">
+                    <ion-item-option color="danger">
+                      <ion-icon name="close-circle-outline">
+                      </ion-icon>
+                    </ion-item-option>
+                  </ion-item-options>
+
+                </ion-item-sliding>
+              </ion-list>-->
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,82 @@
+* {
+  font-weight: 600;
+}
+
+ion-toolbar {
+  --background: white;
+}
+
+.error-message {
+  color: red;
+}
+
+.body {
+  background-color: #ff3f00;
+  height: 100%;
+  width: 100%;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+  justify-content: center;
+  text-align: center;
+  font-size: larger;
+}
+
+mat-form-field.mat-form-field {
+  font-size: 16px;
+  width: 90%;
+}
+
+ion-card {
+  background-color: #ffffff;
+  border-radius: 5px;
+  margin-top: 17px;
+
+  h1 {
+    color: black;
+    font-weight: 900;
+  }
+}
+
+#btn_login {
+  background-color: #ff3f00;
+  width: 40%;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 15px;
+  border-radius: 8px;
+}
+
+#btn_google {
+  background-color: #ffffff;
+  font-size: 10px;
+  font-weight: 200;
+  width: 80%;
+}
+
+#google_logo {
+  width: 12%;
+}
+
+.buttons_social {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin: 9px;
+}
+
+.texts {
+  padding-top: 10px;
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  font-weight: 100;
+  color: #ffffff;
+  margin: 11px;
+  line-height: 0.2;
+}

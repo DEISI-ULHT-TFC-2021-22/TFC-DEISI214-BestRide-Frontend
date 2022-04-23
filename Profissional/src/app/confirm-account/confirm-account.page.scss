@@ -1,0 +1,57 @@
+* {
+  font-family: "Montserrat";
+  color: black;
+}
+
+ion-content {
+  --background: #00adff;
+}
+
+ion-card {
+  margin: 22px;
+  h1 {
+    text-align: center;
+    font-weight: bolder;
+  }
+
+  ion-label {
+    font-weight: 500;
+  }
+
+  ion-input {
+    font-weight: bold;
+    text-align: center;
+  }
+
+  ion-button {
+    color: white;
+    --background: black;
+    font-weight: bolder;
+    width: 40%;
+  }
+
+  u {
+    font-weight: 500;
+  }
+}
+@media (max-width: 576px) {
+  ion-toolbar {
+    img {
+      height: 70px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+@media (min-width: 820px) {
+  ion-toolbar {
+    img {
+      height: 70px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}

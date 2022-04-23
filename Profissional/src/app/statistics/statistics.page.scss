@@ -1,0 +1,41 @@
+* {
+  font-family: "Montserrat";
+  font-weight: 600;
+}
+
+// #F0F0F0
+
+ion-content {
+  --ion-background-color: #00adff;
+}
+
+ion-card {
+  --background: white;
+}
+
+@media (max-width: 576px) {
+  ion-toolbar {
+    img {
+      height: 70px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+@media (min-width: 820px) {
+  ion-toolbar {
+    img {
+      height: 70px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  ion-grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

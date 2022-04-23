@@ -1,0 +1,31 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "BestRide",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    },
+    "GoogleAuth": {
+      "scopes": [
+        "profile",
+        "email"
+      ],
+      "serverClientId": "386155875693-1sikqp2taljub79la0lele6v4o8vdjje.apps.googleusercontent.com",
+      "forceCodeForRefreshToken": true
+    },
+    "proxies": [
+      {
+        "path": "/*",
+        "proxyUrl": "http://localhost:8100"
+      }
+    ]
+  },
+  "cordova": {},
+  "server": {
+    "url": "http://localhost:8100",
+    "cleartext": true
+  }
+}

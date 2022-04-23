@@ -1,0 +1,14 @@
+[
+  {
+    "country": "$ US Dollar",
+    "currency_code": "USD"
+  },
+  {
+    "country": "€ Euro",
+    "currency_code": "EUR"
+  },
+  {
+    "country": "£ Pound",
+    "currency_code": "GBP"
+  }
+]

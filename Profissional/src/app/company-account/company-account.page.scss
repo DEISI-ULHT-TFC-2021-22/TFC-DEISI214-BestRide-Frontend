@@ -1,0 +1,74 @@
+* {
+  font-family: "Montserrat";
+  font-weight: 600;
+}
+
+ion-content {
+  --background: rgba(255, 0, 0, 0.774);
+}
+
+.profile_photo {
+  width: 100%;
+  background-color: rgba(255, 0, 0, 0.774);
+  h1 {
+    color: white;
+    font-weight: 800;
+    border-bottom: 2px solid white;
+  }
+}
+
+mat-tab-group {
+  background-color: white;
+}
+
+h1 {
+  font-weight: 900;
+  color: black;
+}
+
+.mat-flat-button {
+  background-color: rgba(255, 0, 0, 0.774);
+  color: white;
+  font-weight: 800;
+}
+
+#submit {
+  background-color: black;
+  color: white;
+  font-weight: 800;
+  width: 60%;
+}
+
+.mat-form-field {
+  width: 95%;
+  color: black;
+  font-weight: 800;
+}
+
+.button_delete {
+  margin-top: 9px;
+  font-weight: bold;
+  width: 100%;
+}
+
+@media (max-width: 576px) {
+  ion-toolbar {
+    img {
+      height: 70px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+@media (min-width: 820px) {
+  ion-toolbar {
+    img {
+      height: 70px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}

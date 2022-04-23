@@ -1,0 +1,81 @@
+<ion-app>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>
+        <img src="../assets/br_new_logo.png">
+      </ion-title>
+      <ion-buttons slot="start">
+        <ion-menu-button autoHide="false" (onclick)="openMenu()"></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    <ion-grid>
+      <ion-row>
+        <!-- Card Operations -->
+        <ion-col>
+          <ion-card>
+            <ion-card-header>
+              <div class="ion-text-center">
+                <h1>{{'Hello !!' | customTranslate | async}}</h1>
+              </div>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-slides pager="true" mode="md" [options]="slideOpts">
+                <ion-slide>
+                  <div class="ion-text-center ion-padding tour" (click)="openCreatePageTour()">
+                    <h1>{{'Add Tour' | customTranslate |async}}</h1>
+                    <mat-icon>home</mat-icon>
+                  </div>
+                </ion-slide>
+                <ion-slide>
+                  <div class="ion-text-center ion-padding vehicle" (click)="openCreatePageVehicle()">
+                    <h1>{{'Add Vehicle' | customTranslate | async}}</h1>
+                    <mat-icon>time_to_leave</mat-icon>
+                  </div>
+                </ion-slide>
+                <ion-slide>
+                  <div class="ion-text-center ion-padding driver">
+                    <h1>{{'Add Driver' | customTranslate | async}}</h1>
+                    <mat-icon>directions_walk</mat-icon>
+                  </div>
+                </ion-slide>
+              </ion-slides>
+            </ion-card-content>
+          </ion-card>
+          <!-- End Card Operations -->
+
+
+          <!-- Other Operations -->
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{'Itineraries assigned today' | customTranslate | async}}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <ion-list>
+              <ion-item *ngFor="let tour of tours">
+                <div class="ion-text-center">
+                  <p>{{tour.driver}} will tuking {{tour.name}}</p>
+                </div>
+              </ion-item>
+            </ion-list>
+          </mat-expansion-panel>
+          <!-- End other operations -->
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <!-- ticker -->
+          <div class="hwrap">
+            <div class="hmove">
+              <div class="hitem">{{'Warning : Sandstorm is approaching until Saturday' | customTranslate | async}}</div>
+              <div class="hitem">{{'Warning: Rua do Carmo closed for road works' | customTranslate | async}}</div>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</ion-app>

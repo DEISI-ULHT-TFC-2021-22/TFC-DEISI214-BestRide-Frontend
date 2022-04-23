@@ -1,0 +1,75 @@
+{
+  "definicoes": {
+    "tabName": "Definitions",
+    "option_text": "Language",
+    "languageChangePlaceholder": "Choose your Language"
+  },
+  "menu": {
+    "botao1": "circuit 1",
+    "botao2": "circuit 2"
+  },
+  "login": {
+    "no_account": "No Account? Create one for free!",
+    "recover_account": "Recover your account"
+  },
+  "recovery_account": {
+    "tabName": "Recover Account",
+    "button_text": "Recover Account"
+  },
+  "create_account": {
+    "tabName": "Create Account",
+    "text": "Repeat Password",
+    "name": "Name",
+    "cellphone": "Phone Number",
+    "city": "City",
+    "sex": "Gender",
+    "sex_male": "Male",
+    "sex_female": "Female",
+    "address": "address",
+    "postal": "Postal Code",
+    "Date_birth": "Date of Birth",
+    "button_text": "Create Account"
+  },
+  "menu_navegacao": {
+    "map": "Home",
+    "definitions_user": "Definitions User",
+    "agend": "Trip's",
+    "definitions_app": "Definitions App"
+  },
+  "personal_data_page": {
+    "tab": "User Data",
+    "user": "Name",
+    "email": "email",
+    "city": "city",
+    "address": "address",
+    "postal": "Postal Code",
+    "phone": "Phone Number",
+    "button_update": "Update Account",
+    "button_change_pass": "Change Password"
+  },
+  "alert_login": {
+    "header": "Error",
+    "message": "Invalid credentials, try again",
+    "buttons": ["OK"]
+  },
+  "alert_data_user": {
+    "header": "Sucess",
+    "message": "Fields have been changed!",
+    "buttons": ["Ok"]
+  },
+  "reset_page_modal": {
+    "header": "Error",
+    "message": "Validate Data Correctly",
+    "buttons": ["Ok"]
+  },
+  "recover_account": {
+    "header": "Error",
+    "message": "Try a valid email",
+    "buttons": ["Ok"]
+  },
+  "modal_map_form": {
+    "tab_name": "Map",
+    "date": "What Date?",
+    "people": "How much people?"
+  }
+}

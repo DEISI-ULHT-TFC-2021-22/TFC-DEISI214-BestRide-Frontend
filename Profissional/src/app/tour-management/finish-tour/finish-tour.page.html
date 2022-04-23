@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['/create-tour']" strong="true">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      <img src="../assets/br_new_logo.png">
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <form [formGroup]="tourFinishForm" (ngSubmit)="submitTour()" novalidate>
+      <div class="ion-text-center">
+        <h1>{{'Finish Tour' | customTranslate | async}}</h1>
+      </div>
+
+      <div class="ion-padding">
+
+        <mat-grid-list cols="2">
+          <mat-grid-tile>
+
+            <mat-form-field appearance="outline" id="priceField">
+              <mat-label>{{'Price of tour' | customTranslate | async}}</mat-label>
+              <input formControlName="price" matInput type="number" class="example-right-align" placeholder="0">
+              <mat-error class="error ion-padding" *ngIf="isSubmitted && errorControl.price.errors?.required">
+                {{'Price is required' | customTranslate | async}}
+              </mat-error>
+              <mat-error class="error ion-padding" *ngIf="isSubmitted && errorControl.price.errors?.pattern">
+                {{'Wrong Format' | customTranslate | async}}
+              </mat-error>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field appearance="fill" id="selectField">
+              <mat-label>{{'Currency' | customTranslate | async}}</mat-label>
+              <mat-select formControlName="price_ind">
+                <mat-option *ngFor="let cur of countryCurrencyList" value="{{cur.currency_code}}">{{cur.country}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+      <br>
+      <div class="ion-text-center">
+        <p>{{ 'Note: BestRide has 25% of commission'}}</p>
+        <p>{{'Your commission is: '}}
+          {{ enterprise_commission * tourFinishForm.get('price').value | currency : 'EUR'}}</p>
+      </div>
+      <!-- Submit button  -->
+      <ion-row>
+        <ion-col>
+          <div class="ion-text-center">
+            <ion-button type="submit"> {{ 'Create'| customTranslate | async }}
+            </ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-card>
+</ion-content>

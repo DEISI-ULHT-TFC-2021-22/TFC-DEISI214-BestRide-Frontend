@@ -1,0 +1,23 @@
+ion-toolbar {
+  #img {
+    width: 45%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+ion-card {
+  ion-card-title {
+    text-align: center;
+  }
+
+  h2 {
+    color: black;
+    font-weight: 800;
+  }
+}
+
+* {
+  font-weight: bold;
+}

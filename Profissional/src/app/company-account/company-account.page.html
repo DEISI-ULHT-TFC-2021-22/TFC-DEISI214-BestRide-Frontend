@@ -1,0 +1,141 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <img src="../assets/br_new_logo.png">
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <div class="profile_photo">
+        <div class="ion-text-center ion-padding">
+          <h1>{{companyEditForm.get('name').value}}</h1>
+          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        </div>
+      </div>
+    </ion-row>
+
+    <mat-tab-group>
+      <!-- Account Information -->
+      <mat-tab label="Information">
+        <mat-list>
+          <mat-list-item>
+            <mat-icon color="primary" matListIcon>mail_outline</mat-icon>
+            <b matLine>{{companyEditForm.get('email').value}}</b>
+          </mat-list-item>
+
+          <mat-list-item>
+            <mat-icon color="primary" matListIcon>face</mat-icon>
+            <b matLine>{{companyEditForm.get('name').value}}</b>
+          </mat-list-item>
+
+          <mat-list-item>
+            <mat-icon color="primary" matListIcon>contact_mail</mat-icon>
+            <b matLine>{{companyEditForm.get('rnat').value}}</b>
+          </mat-list-item>
+
+          <mat-list-item>
+            <mat-icon color="primary" matListIcon>home</mat-icon>
+            <b matLine>{{companyEditForm.get('address').value}}</b>
+          </mat-list-item>
+
+          <mat-list-item>
+            <mat-icon color="primary" matListIcon>public</mat-icon>
+            <b matLine>{{companyEditForm.get('locale').value}}</b>
+          </mat-list-item>
+
+
+          <mat-list-item>
+            <mat-icon color="primary" matListIcon>local_post_office</mat-icon>
+            <b matLine>{{companyEditForm.get('postal_code').value}}</b>
+          </mat-list-item>
+
+
+          <mat-list-item>
+            <mat-icon color="primary" matListIcon>flag</mat-icon>
+            <b matLine>{{companyEditForm.get('country').value}}</b>
+          </mat-list-item>
+
+          <mat-list-item>
+            <mat-icon color="primary" matListIcon>phone</mat-icon>
+            <b matLine>{{companyEditForm.get('phone_number').value}}</b>
+          </mat-list-item>
+
+          <mat-list-item>
+            <mat-icon color="primary" matListIcon>article</mat-icon>
+            <b matLine>{{companyEditForm.get('nif').value}}</b>
+          </mat-list-item>
+
+        </mat-list>
+      </mat-tab>
+      <!-- Account update -->
+      <mat-tab label="Update">
+        <ion-card class="account_info_card ion-padding">
+          <ion-card-content>
+            <form [formGroup]="companyEditForm" (ngSubmit)="editSubmit()" novalidate>
+
+              <mat-form-field appearance="outline">
+                <mat-label>{{'Email' | customTranslate | async}}</mat-label>
+                <input matInput formControlName="email">
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>{{'Name' | customTranslate | async}}</mat-label>
+                <input matInput formControlName="name">
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>{{'RNAAT Number' | customTranslate | async}}</mat-label>
+                <input matInput formControlName="rnat">
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>{{'Address' | customTranslate | async}}</mat-label>
+                <input matInput formControlName="address">
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>{{'City' | customTranslate | async}}</mat-label>
+                <input matInput formControlName="locale">
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>{{'Postal Code' | customTranslate | async}}</mat-label>
+                <input matInput formControlName="postal_code">
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>{{'Country' | customTranslate | async}}</mat-label>
+                <input matInput formControlName="country">
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>{{'Phone Number' | customTranslate | async}}</mat-label>
+                <input matInput formControlName="phone_number">
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>{{'NIF' | customTranslate | async}}</mat-label>
+                <input matInput formControlName="nif">
+              </mat-form-field>
+
+              <div class="ion-text-center">
+                <button mat-flat-button [disabled]="companyEditForm.disabled" type="submit" id="submit">
+                  {{ 'Update' |customTranslate |async}}
+                </button>
+              </div>
+            </form>
+          </ion-card-content>
+          <button class="button_delete" mat-raised-button color="warn">{{'Delete Account' | customTranslate |
+            async}}</button>
+        </ion-card>
+      </mat-tab>
+      <mat-tab label="Change Password">{{'Change Password' | customTranslate | async}}</mat-tab>
+    </mat-tab-group>
+  </ion-grid>
+</ion-content>

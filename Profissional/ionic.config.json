@@ -1,0 +1,13 @@
+{
+  "name": "best_ride_frontend_driver",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "proxies": [
+    {
+      "path": "/employees",
+      "proxyUrl": "http://localhost:8000/api/employees"
+    }
+  ]
+}

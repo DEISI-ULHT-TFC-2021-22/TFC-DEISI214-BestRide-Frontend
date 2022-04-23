@@ -1,0 +1,86 @@
+* {
+  font-family: "Montserrat";
+}
+
+ion-content {
+  --background: #ffba00;
+}
+
+ion-card {
+  h1 {
+    color: black;
+    font-weight: 800;
+  }
+
+  h4 {
+    color: black;
+    font-weight: 600;
+    padding-left: 15px;
+  }
+
+  ion-input {
+    color: black;
+    font-weight: 800;
+  }
+
+  ion-textarea {
+    color: black;
+    font-weight: 700;
+  }
+
+  ion-button {
+    width: 50%;
+    color: white;
+    --background: black;
+    border-radius: 3px;
+  }
+
+  ion-select {
+    --placeholder-color: black;
+    font-weight: 800;
+    border-bottom: 2px solid #ffba00;
+    --placeholder-opacity: 100%;
+  }
+}
+
+mat-form-field.mat-form-field {
+  font-size: 16px;
+  font-weight: bolder;
+  color: black;
+}
+
+#priceField {
+  width: 95%;
+}
+
+#selectField {
+  width: 95%;
+}
+
+p {
+  color: black;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+@media (max-width: 576px) {
+  ion-toolbar {
+    img {
+      height: 70px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+@media (min-width: 820px) {
+  ion-toolbar {
+    img {
+      height: 70px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
