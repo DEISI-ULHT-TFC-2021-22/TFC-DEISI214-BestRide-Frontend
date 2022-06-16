@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
 import { CriaContaApiService } from './create-account-api.service';
 import { AppComponent } from '../app.component';
+import { CountryCode } from './countryCode';
 
 @Component({
   selector: 'app-cria-conta',
@@ -12,10 +13,12 @@ import { AppComponent } from '../app.component';
 export class CriaContaPage implements OnInit {
   public hide = false;
   public hide2 = false;
-
   public passwordIconToggle: String = 'eye';
   public passwordIconToggle2: String = 'eye';
   public ionicForm: FormGroup;
+
+  countryCode: Array<CountryCode>;
+
   isSubmitted = false;
 
   public phoneIndicative: any = [
@@ -39,10 +42,13 @@ export class CriaContaPage implements OnInit {
 
   public gender: any = [
     {
-      gender: 'male',
+      gender: 'Male',
     },
     {
-      gender: 'female',
+      gender: 'Female',
+    },
+    {
+      gender: 'Prefer not to say',
     },
   ];
 
@@ -70,11 +76,12 @@ export class CriaContaPage implements OnInit {
         name: ['', Validators.required],
         dob: ['', Validators.required],
         phone: ['', Validators.required],
-        phone_ind: ['', Validators.required],
+        phone_ind: ['+351', Validators.required],
         address: ['', Validators.required],
         postal: ['', Validators.required],
         gender: ['', Validators.required],
         city: ['', Validators.required],
+        check: [false],
         email: [
           '',
           Validators.compose([
@@ -86,21 +93,22 @@ export class CriaContaPage implements OnInit {
           '',
           Validators.compose([
             Validators.required,
-            Validators.minLength(8),
-            Validators.maxLength(12),
+            Validators.pattern(
+              '(?=[A-Za-z0-9@#$%^&+!=]+$)^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+!=])(?=.{8,}).*$'
+            ),
           ]),
         ],
         passRepeat: [
           '',
-          Validators.compose([
-            Validators.required,
-            Validators.minLength(8),
-            Validators.maxLength(12),
-          ]),
+          Validators.compose([Validators.required, Validators.minLength(8)]),
         ],
       },
       { validator: this.matchingPasswords('pass', 'passRepeat') }
     );
+
+    this.api.getCountryCode().subscribe((res) => {
+      this.countryCode = res;
+    });
   }
 
   matchingPasswords(passwordKey: string, confirmPasswordKey: string) {
@@ -125,7 +133,8 @@ export class CriaContaPage implements OnInit {
 
   public submit() {
     this.isSubmitted = true;
-    if (!this.ionicForm.valid) {
+
+    if (!this.ionicForm.valid || !this.ionicForm.get('check').value) {
       return false;
     } else {
       const indicative = this.ionicForm.get('phone_ind').value;

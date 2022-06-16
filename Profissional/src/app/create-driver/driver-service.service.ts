@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CountryCode } from './countryCode';
+import { Language } from './language';
 
 @Injectable({
   providedIn: 'root',
@@ -19,6 +20,9 @@ export class DriverServiceService {
   }
   public getCountryList(): Observable<CountryCode[]> {
     return this.http.get<CountryCode[]>('./../assets/countries.json');
+  }
+  public getLanguageList(): Observable<Language[]> {
+    return this.http.get<Language[]>('./../assets/languages.json');
   }
 
   public create_emergency(data: any): void {
@@ -43,17 +47,17 @@ export class DriverServiceService {
       gender: data['first_page'].gender,
       adress: data['first_page'].adress,
       city: data['first_page'].city,
-      PostalCode: data['first_page'].PostalCode,
-      Country: data['first_page'].Country,
-      NIF: data['second_page'].nif,
+      postalCode: data['first_page'].postalCode,
+      country: data['first_page'].country,
+      nif: data['second_page'].nif,
       RNATLicense: data['second_page'].rnaat_l,
-      DriverLicense: data['second_page'].driver_l,
-      Phone: data['first_page'].Phone,
-      Nationality: data['second_page'].nation,
-      CitizenCard: data['second_page'].cc,
+      driverLicense: data['second_page'].driver_l,
+      phone: data['first_page'].phone,
+      nationality: data['second_page'].nation,
+      citizenCard: data['second_page'].cc,
       ANCATNumber: data['second_page'].ancat_l,
       IBAN: data['second_page'].bank_iban,
-      Image: data['second_page'].docImage,
+      docImage: data['second_page'].docImage,
     };
     this.http
       .post(environment.apiUrl + this.url_cognito_create, data_form)

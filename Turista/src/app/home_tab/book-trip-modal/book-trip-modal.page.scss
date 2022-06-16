@@ -29,7 +29,23 @@
   height: calc(100%);
   position: absolute;
   top: 12%;
+  padding: 6%;
   justify-content: center;
   text-align: center;
   font-size: larger;
+
+  h1 {
+    color: black;
+    font-size: 8vw;
+    font-weight: 800;
+  }
+
+  #btn_submit {
+    background-color: #ff3f00;
+    width: 70%;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 15px;
+    border-radius: 8px;
+  }
 }

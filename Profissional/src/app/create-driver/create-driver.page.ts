@@ -4,6 +4,7 @@ import { Router, NavigationExtras } from '@angular/router';
 import { DriverServiceService } from './driver-service.service';
 import { CountryCode } from './countryCode';
 import { Country } from './country';
+import { Language } from './language';
 
 @Component({
   selector: 'app-create-driver',
@@ -15,6 +16,7 @@ export class CreateDriverPage implements OnInit {
   public isSubmitted = false;
   countryCode: Array<CountryCode>;
   public countryList: Array<Country>;
+  public languageList: Array<Language>
   public hidePass = true;
   public hideRepeatPass = true;
 
@@ -44,7 +46,7 @@ export class CreateDriverPage implements OnInit {
           [
             Validators.required,
             Validators.pattern(
-              '(?=[A-Za-z0-9@#$%^&+!=]+$)^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+!=])(?=.{8,}).*$'
+              '(?=[A-Za-z0-9@#$%^&+!_.,=]+$)^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+!_.,=])(?=.{8,}).*$'
             ),
           ],
         ],
@@ -62,9 +64,12 @@ export class CreateDriverPage implements OnInit {
         city: ['', Validators.required],
         companyName: ['', Validators.required],
         companyAddress: ['', Validators.required],
+        p_indCompany: ['+351', Validators.required],
         companyPhone: ['', Validators.required],
-        countryOrigin: ['', Validators.required],
-        cars: ['', Validators.required],
+        countryOrigin: ['Portugal', Validators.required],
+        cars: [, Validators.required],
+        //Join these two after sending to backend
+        otherCars: [''],
         hoursAvailableSince: ['', Validators.required],
         hoursAvailableUntil: ['', Validators.required],
       },
@@ -77,6 +82,9 @@ export class CreateDriverPage implements OnInit {
     this.serviceDriver.getCountryList().subscribe((res) => {
       this.countryList = res;
     });
+    this.serviceDriver.getLanguageList().subscribe((res) => {
+      this.languageList = res;
+    })
   }
 
   passwordMatchValidator(frm: FormGroup) {
@@ -100,9 +108,9 @@ export class CreateDriverPage implements OnInit {
           gender: '' + this.driverForm.get('gender').value,
           adress: '' + this.driverForm.get('address').value,
           city: '' + this.driverForm.get('city').value,
-          PostalCode: '' + this.driverForm.get('postal').value,
-          Country: '' + this.driverForm.get('country').value,
-          Phone:
+          postalCode: '' + this.driverForm.get('postal').value,
+          country: '' + this.driverForm.get('country').value,
+          phone:
             '' +
             this.driverForm.get('p_ind').value +
             '' +
